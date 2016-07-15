@@ -1,7 +1,6 @@
 <?php
 $nid= arg(1);
 $node = node_load($nid);
-
 ?>
 
 
@@ -12,12 +11,24 @@ $node = node_load($nid);
 
 	<label>Username:</label><input class="ssaq_form" type="text" size="42"  style="background-color: lightgray; width: 180px;" readonly="" name="username" value = "<?php echo $node->field_pci_controlscan_username['und'][0]['value'];   ?>">
 	<br />
-	<label>Password:</label> 
-	<input class="ssaq_form" type="password" size="42" name="password" style = "width: 180px;" >
+<?php
+if(!isset($_COOKIE["remember-me"])) {
+    echo '<label>Password:</label>';
+		echo '<input class="ssaq_form" type="password" size="42" name="password" style = "width: 180px;" >';
+} else {
+	echo '<label>Password:</label>'; ?>
+	<input class="ssaq_form" type="password" size="42" name="password" style = "width: 180px;" value = "<?php echo $cookie_pass?>">	<?php
+}
+?>
 	<div class="form-item form-type-checkbox form-item-remember-me">
 		<input tabindex="1" type="checkbox" id="edit-remember-me" name="remember_me" value="1" checked="checked" class="form-checkbox">  <label class="option" for="edit-remember-me">Remember me: </label>
 	</div>
-	<div align="left">		
+	<?php
+	if isset($_POST['remember-me']){
+		setcookie("remember-me", $cookie_pass = password, time()+3600);
+	}
+	?>
+	<div align="left">
 		<input class="button ssaq_button" type="Submit" value="Login to PCI ControlScan">
 	</div>
 </form>
