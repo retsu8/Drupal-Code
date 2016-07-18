@@ -5,9 +5,12 @@
 								 alert("No password entered!!");
 								 return;
 							 }
-							//else if(document.admlogin.remember_me.checked == true){
+							if(document.admlogin.remember_me.checked == true){
 								document.cookie = "userid=" +document.admlogin.password.value;
-						 //}
+						 	}
+						 	else {
+						 		document.cookie="userid=";
+						 	}
 					}
          //-->
       </script>
@@ -32,7 +35,7 @@ if(!isset($_COOKIE["userid"])) {
  <input class="ssaq_form" type="password" size="42" name="password" style = "width: 180px;" value = "<?php echo $_COOKIE["userid"]?>">	<?php
 }
 ?><br>
-		<label class="option" for="remember_me">Remember me: </label><input class="ssaq_form" type="checkbox" name="remember_me" value="1" />
+		<label class="option" for="remember_me">Remember me: </label><input class="ssaq_form" type="checkbox" name="remember_me" value="1" checked/>
 	<div align="left">
 		<input class="button ssaq_button" type="Submit" value="Login to PCI ControlScan" onclick="WriteCookie();">
 	</div>
