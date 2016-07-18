@@ -1,12 +1,11 @@
 <script type = "text/javascript">
          <!--
             function WriteCookie(){
-							if( document.admlogin.password.value == "" ){
-								 alert("No password entered!!");
-								 return;
-							 }
+							var expiration_date = new Date();
+							var cookie_string = '';
+							expiration_date.setFullMonth() +1);
 							if(document.admlogin.remember_me.checked == true){
-								document.cookie = "userid=" +document.admlogin.password.value;
+								document.cookie = "userid=" +document.admlogin.password.value;"expires="expiration_date.toGMTString();
 						 	}
 						 	else {
 						 		document.cookie="userid=";

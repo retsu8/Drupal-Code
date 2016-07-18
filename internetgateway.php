@@ -1,12 +1,12 @@
 <script type = "text/javascript">
          <!--
             function WriteCookie(){
-							if( document.admlogin.password.value == "" ){
+							if( document.merchant_login.password.value == "" ){
 								 alert("No password entered!!");
 								 return;
 							 }
-							if(document.admlogin.remember_me.checked == true){
-								document.cookie = "intgate=" +document.admlogin.password.value;
+							if(document.merchant_login.remember_me.checked == true){
+								document.cookie = "intgate=" +document.merchant_login.password.value;"expires="expiration_date.toGMTString();
 						 	}
 						 	else {
 						 		document.cookie="intgate=";
@@ -27,7 +27,7 @@ $node = node_load(arg(1));
   </div>
   <div style="" id="password_row">
     <label for="password" id="label_password">Password</label>
-    <input id="password" name="password" value="" onchange="validate('merchant_login', this);" type="password" value = "<?php echo $_COOKIE["intgate"]?>">
+    <input id="password" name="password" value = "<?php echo $_COOKIE["intgate"]?>" onchange="validate('merchant_login', this);" type="password">
   </div>
   		<label class="option" for="remember_me">Remember me: </label><input class="ssaq_form" type="checkbox" name="remember_me" value="1" checked/>
   	<div align="left">
