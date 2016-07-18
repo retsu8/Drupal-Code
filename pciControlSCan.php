@@ -8,11 +8,10 @@ $node = node_load($nid);
 	<input type="hidden" value="process" name="a">
 	<input type="hidden" value="overview" name="page_requested">
 	<input id="js" type="hidden" value="1" name="js">
-
 	<label>Username:</label><input class="ssaq_form" type="text" size="42"  style="background-color: lightgray; width: 180px;" readonly="" name="username" value = "<?php echo $node->field_pci_controlscan_username['und'][0]['value'];   ?>">
 	<br />
 <?php
-if(!isset($_COOKIE["remember-me"])) {
+if(!isset($_COOKIE["userid"])) {
     echo '<label>Password:</label>';
 		echo '<input class="ssaq_form" type="password" size="42" name="password" style = "width: 180px;" >';
 } else {
@@ -24,8 +23,8 @@ if(!isset($_COOKIE["remember-me"])) {
 		<input tabindex="1" type="checkbox" id="edit-remember-me" name="remember_me" value="1" checked="checked" class="form-checkbox">  <label class="option" for="edit-remember-me">Remember me: </label>
 	</div>
 	<?php
-	if isset($_POST['remember-me']){
-		setcookie("remember-me", $cookie_pass = password, time()+3600);
+	if (isset($_POST['userid'])){
+		setcookie("userid", $userid = echo $_POST["userid"], time()+3600);
 	}
 	?>
 	<div align="left">
