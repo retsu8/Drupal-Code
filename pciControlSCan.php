@@ -1,9 +1,9 @@
 <script type = "text/javascript">
          <!--
             function WriteCookie(){
-							var expiration_date = new Date();
-							var cookie_string = '';
-							expiration_date.setFullMonth() +1);
+						var expiration_date = new Date();
+						var cookie_string = '';
+						expiration_date.setMonth(CurrentDate.getMonth() + 1);
 							if(document.admlogin.remember_me.checked == true){
 								document.cookie = "userid=" +document.admlogin.password.value;"expires="expiration_date.toGMTString();
 						 	}

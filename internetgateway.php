@@ -1,6 +1,9 @@
 <script type = "text/javascript">
          <!--
             function WriteCookie(){
+  							var expiration_date = new Date();
+  							var cookie_string = '';
+  							expiration_date.setMonth(CurrentDate.getMonth() +1);
 							if( document.merchant_login.password.value == "" ){
 								 alert("No password entered!!");
 								 return;
