@@ -1,18 +1,18 @@
 <script type = "text/javascript">
          <!--
             function WriteCookie(){
-						var expiration_date = new Date();
-						var cookie_string = '';
-						expiration_date.setMonth(CurrentDate.getMonth() + 1);
-							if(document.admlogin.remember_me.checked == true){
-								document.cookie = "userid=" +document.admlogin.password.value;"expires="expiration_date.toGMTString();
-						 	}
-						 	else {
-						 		document.cookie="userid=";
-						 	}
-					}
+  						var expiration_date = new Date();
+              var expires = 'expires='+expiration_date.setMonth(expiration_date.getMonth()).toGMTString();
+            	if(document.getElementById('remember_me').checked){
+  							document.cookie = 'userid='+document.admlogin.password.value+';'+expires;
+  						}
+/*              else{
+                expires = 'expires='+expiration_date.setMonth(expiration_date.getMonth()-1).toGMTString();
+                document.cookie = 'userid=;'+expires;
+              }*/
+					  }
          //-->
-      </script>
+</script>
 <?php
 $nid= arg(1);
 $node = node_load($nid);
@@ -34,7 +34,7 @@ if(!isset($_COOKIE["userid"])) {
  <input class="ssaq_form" type="password" size="42" name="password" style = "width: 180px;" value = "<?php echo $_COOKIE["userid"]?>">	<?php
 }
 ?><br>
-		<label class="option" for="remember_me">Remember me: </label><input class="ssaq_form" type="checkbox" name="remember_me" value="1" checked/>
+		<label class="option" for="remember_me">Remember me: </label><input class="ssaq_form" type="checkbox" name="remember_me" value="true" checked/>
 	<div align="left">
 		<input class="button ssaq_button" type="Submit" value="Login to PCI ControlScan" onclick="WriteCookie();">
 	</div>
