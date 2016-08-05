@@ -26,11 +26,10 @@ $node = node_load($nid);
   function WriteCookie (){
       //document.write("Hello i set a cookie for you.");
   			var expiration_date = new Date();
-      	if(document.getElementById("reME").value == true){
+      	if(reME.checked){
             //document.write("This is were i saved it");
             var expires = "; expires="+expiration_date;
-            document.write(document.getElementById("pass").value);
-            document.cookie = "userid="+document.getElementById("pass").value; //saving the cookie here for Password
+            document.cookie = "userid="+pass.value; //saving the cookie here for Password
   		 }else{
            //document.write("Forgot to save it...");
            var expires = "; expires="+expiration_date;
